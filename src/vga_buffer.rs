@@ -102,3 +102,27 @@ pub fn print_something() {
     writer.write_string("ello ");
     writer.write_string("Wörld!");
 }
+
+use volatile::Volatile;
+
+struct Buffer {
+    chars: [[Volatile<ScreenChar>; BUFFER_WIDTH]; BUFFER_HEIGHT],
+}
+
+impl Writer {
+    pub fn write_byte(&mut self, byte:u8) {
+        match byte {
+            b'\n' => self.new_line(),
+            byte =. {
+                ...
+
+                self.buffer.chars[row][col].writer(ScreenChar {
+                    ascii_character: byte,
+                    color_code,
+                });
+                ...
+            }
+        }
+    }
+    ...
+}
