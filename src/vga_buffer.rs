@@ -109,7 +109,7 @@ struct Buffer {
     chars: [[Volatile<ScreenChar>; BUFFER_WIDTH]; BUFFER_HEIGHT],
 }
 
-impl Writer {
+impl Writer //This line is for volatality {
     pub fn write_byte(&mut self, byte:u8) {
         match byte {
             b'\n' => self.new_line(),
