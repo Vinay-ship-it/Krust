@@ -105,34 +105,5 @@ pub fn print_something() {
 
     writer.write_byte(b'H');
     writer.write_string("ello ");
-<<<<<<< HEAD
-    writer.write_string("Wörld!");
-}
-
-use volatile::Volatile;
-
-struct Buffer {
-    chars: [[Volatile<ScreenChar>; BUFFER_WIDTH]; BUFFER_HEIGHT],
-}
-
-impl Writer //This line is for volatality {
-    pub fn write_byte(&mut self, byte:u8) {
-        match byte {
-            b'\n' => self.new_line(),
-            byte =. {
-                ...
-
-                self.buffer.chars[row][col].writer(ScreenChar {
-                    ascii_character: byte,
-                    color_code,
-                });
-                ...
-            }
-        }
-    }
-    ...
-}
-=======
     write!(writer, "the numbers are {} and {}", 42, 1.0/3.0).unwrap();
 }
->>>>>>> e9ba90b (updated vga_buffer)
