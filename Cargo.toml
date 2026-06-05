@@ -7,6 +7,7 @@ edition = "2024"
 [dependencies]
 bootloader = "0.9"
 volatile = "0.2.6"
+spin ="0.5.2"
 
 [profile.dev]
 panic = "abort"
@@ -18,3 +19,7 @@ panic = "abort"
 name = "my-kernel"
 test = false
 bench = false
+
+[dependencies.lazy_static]
+version = "1.0"
+features = ["spin_no_std"]

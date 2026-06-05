@@ -1,19 +1,19 @@
 #![no_std]
 #![no_main]
+
 mod vga_buffer;
 
 use core::panic::PanicInfo;
+use core::fmt::Write;
 
-static Hello: &[u8] = b"Hello, World!";
-
-#[unsafe(no_mangle)] // disabling mangling to ensure the compiler outputs a function witht the name _start
+#[unsafe(no_mangle)]
 pub extern "C" fn _start() -> ! {
-    vga_buffer::print_something();
-    loop{}
-}
-
-#[panic_handler] //define our panic handler as we are using no_std
-fn panic(_info: &PanicInfo) -> ! {
+    println!("Hello World!");
     loop {}
 }
 
+#[panic_handler]
+fn panic(_info: &PanicInfo) -> ! {
+    println!("{}",_info);
+    loop {}
+}
