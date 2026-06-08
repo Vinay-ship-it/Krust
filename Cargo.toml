@@ -31,3 +31,7 @@ test-args = ["-device","isa-debug-exit,iobase=0xf4,iosize=0x04", "-serial","stdi
 test-success-exit-code = 33
 test-timeout = 100
 
+[[test]]
+name = "should_panic"
+harness = false
+
