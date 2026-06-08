@@ -4,11 +4,9 @@
 #![test_runner(crate::test_runner)]
 #![reexport_test_harness_main = "test_main"]
 
-mod vga_buffer;
-mod serial;
-
 use core::panic::PanicInfo;
-use core::fmt::Write;
+use my-kernel::println;
+
 
 #[unsafe(no_mangle)]
 pub extern "C" fn _start() -> ! {
@@ -30,10 +28,7 @@ fn panic(_info: &PanicInfo) -> ! {
 #[cfg(test)]
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
-    serial_println!("[failed]\n");
-    serial_println!("Error: {}\n", info);
-    exit_qemu(QemuExitCode::Failed);
-    loop {}
+    my-kernel::test_panic_handler(info)
 }
 
 #[cfg(test)]
