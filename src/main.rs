@@ -12,7 +12,11 @@ pub extern "C" fn _start() -> ! {
     println!("Hello World!");
 
     my_kernel::init();
-    x86_64::instructions::interrupts::int3();
+    
+     unsafe {
+        *(0xdeadbeef as *mut u8) = 42;
+    };
+
     #[cfg(test)]
     test_main();
 
@@ -38,3 +42,4 @@ fn panic(info: &PanicInfo) -> ! {
 fn trivial_assertion() {
     assert_eq!(1, 1);
 }
+
