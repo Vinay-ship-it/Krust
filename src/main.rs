@@ -12,15 +12,11 @@ pub extern "C" fn _start() -> ! {
     println!("Hello World!");
 
     my_kernel::init();
-    
-     unsafe {
-        *(0xdeadbeef as *mut u8) = 42;
-    };
 
     #[cfg(test)]
     test_main();
 
-    println!("It did not crash!");
+    println!("It did not krash!");
 
     loop {}
 }
