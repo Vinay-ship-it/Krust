@@ -36,5 +36,9 @@ run-args = ["-display", "none", "-vnc", "0.0.0.0:0"]
 name = "should_panic"
 harness = false
 
+[[test]]
+name = "stack_overflow"
+harness = false
+
 [target.'cfg(target_os = "none")']
 runner = "bootimage runner -- -display sdl"
