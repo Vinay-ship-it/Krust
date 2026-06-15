@@ -2,7 +2,7 @@
 #![no_main]
 
 use core::panic::PanicInfo;
-use my_kernel::{exit_qemu, serial_print, serial_println, QemuExitCode};
+use krust::{exit_qemu, serial_print, serial_println, QemuExitCode};
 
 #[unsafe(no_mangle)]
 pub extern "C" fn _start() -> ! {

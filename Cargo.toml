@@ -1,5 +1,5 @@
 [package]
-name = "my-kernel"
+name = "krust"
 version = "0.1.0"
 authors = ["Vinay A <vinayananda2@gmail.com>"]
 edition = "2024"
@@ -22,7 +22,7 @@ panic = "abort"
 panic = "abort"
 
 [[bin]]
-name = "my-kernel"
+name = "krust"
 test = true
 bench = false
 
