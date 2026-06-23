@@ -13,6 +13,8 @@ pub extern "C" fn _start() -> ! {
 
     krust::init();
 
+    println!("hey");
+
     #[cfg(test)]
     test_main();
 
