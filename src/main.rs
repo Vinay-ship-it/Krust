@@ -13,12 +13,12 @@ pub extern "C" fn _start() -> ! {
 
     krust::init();
 
-    println!("hey");
+    unsafe {
+        *(0xdeadbeef as *mut u8) = 42;
+    };
 
     #[cfg(test)]
     test_main();
-
-    println!("It did not krash!");
 
     loop {}
 }
