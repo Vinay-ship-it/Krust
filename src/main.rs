@@ -16,14 +16,17 @@ pub extern "C" fn _start() -> ! {
     #[cfg(test)]
     test_main();
 
-    loop {}
+    krust::hlt_loop();
+
+    
 }
 
 #[cfg(not(test))]
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {
     println!("{}", _info);
-    loop {}
+    krust::hlt_loop();
+
 }
 
 #[cfg(test)]
