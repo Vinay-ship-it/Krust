@@ -37,3 +37,4 @@ fn trivial_assertion() {
     assert_eq!(1, 1);
 }
 
+//run-args = ["-display", "none", "-vnc", "0.0.0.0:0"]
